@@ -1,0 +1,41 @@
+%拟牛顿法 计算非线性方程组
+%输入 x0为迭代初值
+%tol为误差容限  如果缺省 默认为10的-10次方
+%data用来存放计算的中间数据便于计算收敛情况分析
+function  [x,n,data]=broyden(x0,tol)
+if nargin==1
+tol=1e-15;
+end
+
+H0=genJacc(x0);
+H0=inv(H0);
+x1=x0-H0*endGame(x0);
+
+n=1;
+
+%设置初始误差 使之可以进入循环
+wucha=0.1;
+%循环迭代
+while   (wucha>tol)&(n<20)&(n<500)
+while   n<0
+%wucha=norm(x1-x0);
+
+dx=x1-x0;
+y=endGame(x1)-endGame(x0);
+
+fenzi=dx'*H0*y; %是标量
+H1=H0+(dx-H0*y)*(dx)'*H0/fenzi;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%这一段相当重要 技巧性也比较强  请体会
+temp_x0=x0;  
+x0=x1;
+x1=temp_x0-H1*endGame(temp_x0);   %x1的更新
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%更新H矩阵
+H=H1;
+n=n+1;
+%data用来存放中间数据
+data(:,n)=x1;
+end
+x=x1;
+end
