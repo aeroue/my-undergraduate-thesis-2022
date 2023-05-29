@@ -1,7 +1,7 @@
 # my-undergraduate-thesis-2022
 - 介绍
 
-Here is part of my undergraduate thesis which is about spacecraft PE game.
+Here is part of my undergraduate thesis which is about PE game.
 
 本科学位论文相关工作（2022）
 
@@ -13,5 +13,5 @@ https://gitee.com/hai_zhu/master_thesis_code/tree/master
 
 
 - 作者
-
+如要引用使用，请联系：
 wuew6160@gmail.com
