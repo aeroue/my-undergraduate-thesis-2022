@@ -9,8 +9,6 @@ Here is part of my undergraduate thesis which is about PE game.
 
 感谢Dr.Zhu提供帮助
 
-https://gitee.com/hai_zhu/master_thesis_code/tree/master
-
 
 - 作者
 如要引用使用，请联系：
